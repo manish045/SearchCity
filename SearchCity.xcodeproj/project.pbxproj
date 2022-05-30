@@ -104,10 +104,8 @@
 				B90664502844D687007B04A1 /* Models */,
 				B90664402844D259007B04A1 /* Application */,
 				B90664412844D267007B04A1 /* LaunchScreen */,
-				B90664162844D211007B04A1 /* Main.storyboard */,
-				B90664192844D213007B04A1 /* Assets.xcassets */,
+				B90664552844D7C3007B04A1 /* Resources */,
 				B906641E2844D213007B04A1 /* Info.plist */,
-				B90664532844D741007B04A1 /* cities.json */,
 			);
 			path = SearchCity;
 			sourceTree = "<group>";
@@ -152,6 +150,16 @@
 				B90664512844D699007B04A1 /* CityModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B90664552844D7C3007B04A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B90664162844D211007B04A1 /* Main.storyboard */,
+				B90664192844D213007B04A1 /* Assets.xcassets */,
+				B90664532844D741007B04A1 /* cities.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
