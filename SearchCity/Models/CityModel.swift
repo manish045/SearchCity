@@ -17,6 +17,10 @@ struct CityModel: Codable {
     let id: Int
     let coord: Coord?
     
+    var cityNameWithID: String {
+        return (name ?? "") + "_\(id)"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case country, name
         case id = "_id"

@@ -9,6 +9,9 @@ import UIKit
 
 class LaunchScreenViewController: UIViewController {
 
+    let group = DispatchGroup()
+
+    
     override func viewDidLoad() {
         self.parseCitiesViaJSONFile()
     }
@@ -31,5 +34,50 @@ class LaunchScreenViewController: UIViewController {
         /// Decode data to a Array[CitiesModel] object
         let citiesModel = try! JSONDecoder().decode(CitiesModel.self, from: jsonData)
         
+        ///Using a tree data structure locating specific keys from within a set.
+        let autocomplete = AutoComplete()
+        
+        /// serailize all Model data into dictionary to get the best complexity for searching Model
+        var cityDict = [Int: CityModel]()
+        var citiesModelArray = CitiesModel()
+        
+        /// With dispatch groups we can group together multiple tasks and notified once they are complete
+        group.enter()
+        queue.async {
+            cityDict = self.loadAllDataToDictionary(citiesData: citiesModel)
+            citiesModelArray = cityDict.values.sorted {$0.cityNameWithID < $1.cityNameWithID}
+            self.group.leave()
+        }
+        
+        group.enter()
+        queue.async {
+            for cityModel in citiesModel {
+                ///Adding id to city will help to find model from dictionary on search
+                self.parseDataForAutoCompleteCities(cityName: cityModel.cityNameWithID, autoComplete: autocomplete)
+            }
+            self.group.leave()
+        }
+        
+        group.notify(queue: queue) {
+            /// Notifies when task is finished
+        }
+    }
+    
+    private func parseDataForAutoCompleteCities(cityName: String, autoComplete: AutoComplete) {
+        ///inserting city to trie structure
+        autoComplete.insert(word: cityName)
+    }
+    
+    private func parseDataForAutoCompleteCountries(countryName: String, autoComplete: AutoComplete) {
+        ///inserting city to trie structure
+        autoComplete.insert(word: countryName)
+    }
+    
+    private func loadAllDataToDictionary(citiesData: CitiesModel) -> [Int: CityModel] {
+        var cityDict = [Int: CityModel]()
+        for cityModel in citiesData {
+            cityDict[cityModel.id] = cityModel
+        }
+        return cityDict
     }
 }
