@@ -17,6 +17,7 @@
 		B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664422844D283007B04A1 /* LaunchScreenViewController.swift */; };
 		B90664522844D699007B04A1 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664512844D699007B04A1 /* CityModel.swift */; };
 		B90664542844D741007B04A1 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = B90664532844D741007B04A1 /* cities.json */; };
+		B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664572844D9D5007B04A1 /* AutoComplete.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B90664422844D283007B04A1 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B90664512844D699007B04A1 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		B90664532844D741007B04A1 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		B90664572844D9D5007B04A1 /* AutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoComplete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		B906640F2844D211007B04A1 /* SearchCity */ = {
 			isa = PBXGroup;
 			children = (
+				B90664562844D9C3007B04A1 /* AutoComplete */,
 				B90664502844D687007B04A1 /* Models */,
 				B90664402844D259007B04A1 /* Application */,
 				B90664412844D267007B04A1 /* LaunchScreen */,
@@ -160,6 +163,14 @@
 				B90664532844D741007B04A1 /* cities.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B90664562844D9C3007B04A1 /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				B90664572844D9D5007B04A1 /* AutoComplete.swift */,
+			);
+			path = AutoComplete;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */,
 				B90664522844D699007B04A1 /* CityModel.swift in Sources */,
 				B90664112844D211007B04A1 /* AppDelegate.swift in Sources */,
 				B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */,
