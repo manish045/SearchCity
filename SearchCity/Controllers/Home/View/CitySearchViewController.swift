@@ -33,6 +33,7 @@ class CitySearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Search City"
         configureCollectionView()
         createSnapshot(characterList: [], state: .loading) 
         // Do any additional setup after loading the view.
