@@ -36,6 +36,7 @@ class CitySearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Search City"
         configureCollectionView()
         createSnapshot(cityList: [], state: .loading)
         addViewModelObservers()

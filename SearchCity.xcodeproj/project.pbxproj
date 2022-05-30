@@ -33,6 +33,7 @@
 		B90664892844E8EC007B04A1 /* CityNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664872844E8EC007B04A1 /* CityNameCollectionViewCell.swift */; };
 		B906648A2844E8EC007B04A1 /* CityNameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90664882844E8EC007B04A1 /* CityNameCollectionViewCell.xib */; };
 		B906648C2844E9AA007B04A1 /*  CitySearchViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906648B2844E9AA007B04A1 /*  CitySearchViewSection.swift */; };
+		B9C803DD2844F65D000D0831 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C803DC2844F65C000D0831 /* AppAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		B90664872844E8EC007B04A1 /* CityNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameCollectionViewCell.swift; sourceTree = "<group>"; };
 		B90664882844E8EC007B04A1 /* CityNameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityNameCollectionViewCell.xib; sourceTree = "<group>"; };
 		B906648B2844E9AA007B04A1 /*  CitySearchViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CitySearchViewSection.swift"; sourceTree = "<group>"; };
+		B9C803DC2844F65C000D0831 /* AppAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B90664102844D211007B04A1 /* AppDelegate.swift */,
+				B9C803DC2844F65C000D0831 /* AppAppearance.swift */,
 				B90664122844D211007B04A1 /* SceneDelegate.swift */,
 			);
 			path = Application;
@@ -464,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90664702844DD2C007B04A1 /* UIView+NibRepresentable.swift in Sources */,
+				B9C803DD2844F65D000D0831 /* AppAppearance.swift in Sources */,
 				B906647D2844E695007B04A1 /* SectionLayoutProvider.swift in Sources */,
 				B906648C2844E9AA007B04A1 /*  CitySearchViewSection.swift in Sources */,
 				B906647B2844E695007B04A1 /* LoadingItem.swift in Sources */,
