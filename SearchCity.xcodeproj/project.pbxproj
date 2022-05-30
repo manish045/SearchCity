@@ -23,6 +23,13 @@
 		B90664652844DC52007B04A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90664642844DC52007B04A1 /* Main.storyboard */; };
 		B90664702844DD2C007B04A1 /* UIView+NibRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906646A2844DD2C007B04A1 /* UIView+NibRepresentable.swift */; };
 		B90664722844DD2C007B04A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906646E2844DD2C007B04A1 /* Coordinator.swift */; };
+		B906647A2844E695007B04A1 /* LoadingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90664752844E695007B04A1 /* LoadingCollectionCell.xib */; };
+		B906647B2844E695007B04A1 /* LoadingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664762844E695007B04A1 /* LoadingItem.swift */; };
+		B906647C2844E695007B04A1 /* LoadingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664772844E695007B04A1 /* LoadingCollectionCell.swift */; };
+		B906647D2844E695007B04A1 /* SectionLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664782844E695007B04A1 /* SectionLayoutProvider.swift */; };
+		B906647E2844E695007B04A1 /* DiffableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664792844E695007B04A1 /* DiffableDatasource.swift */; };
+		B90664802844E6CE007B04A1 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906647F2844E6CE007B04A1 /* UICollectionView+Extension.swift */; };
+		B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664822844E70E007B04A1 /* SchedulerContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +70,13 @@
 		B90664642844DC52007B04A1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B906646A2844DD2C007B04A1 /* UIView+NibRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibRepresentable.swift"; sourceTree = "<group>"; };
 		B906646E2844DD2C007B04A1 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B90664752844E695007B04A1 /* LoadingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCollectionCell.xib; sourceTree = "<group>"; };
+		B90664762844E695007B04A1 /* LoadingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingItem.swift; sourceTree = "<group>"; };
+		B90664772844E695007B04A1 /* LoadingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCollectionCell.swift; sourceTree = "<group>"; };
+		B90664782844E695007B04A1 /* SectionLayoutProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionLayoutProvider.swift; sourceTree = "<group>"; };
+		B90664792844E695007B04A1 /* DiffableDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDatasource.swift; sourceTree = "<group>"; };
+		B906647F2844E6CE007B04A1 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		B90664822844E70E007B04A1 /* SchedulerContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +129,12 @@
 			children = (
 				B90664402844D259007B04A1 /* Application */,
 				B90664562844D9C3007B04A1 /* AutoComplete */,
+				B90664732844E695007B04A1 /* DiffiableDataSource */,
 				B90664502844D687007B04A1 /* Models */,
 				B90664412844D267007B04A1 /* LaunchScreen */,
 				B90664592844DB9F007B04A1 /* Controllers */,
 				B90664662844DCE8007B04A1 /* Shared */,
+				B90664812844E70E007B04A1 /* Util */,
 				B90664552844D7C3007B04A1 /* Resources */,
 				B906641E2844D213007B04A1 /* Info.plist */,
 			);
@@ -247,6 +263,7 @@
 		B90664682844DD2C007B04A1 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B906647F2844E6CE007B04A1 /* UICollectionView+Extension.swift */,
 				B906646A2844DD2C007B04A1 /* UIView+NibRepresentable.swift */,
 			);
 			path = UIKit;
@@ -266,6 +283,34 @@
 				B906646E2844DD2C007B04A1 /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B90664732844E695007B04A1 /* DiffiableDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B90664742844E695007B04A1 /* Loading */,
+				B90664782844E695007B04A1 /* SectionLayoutProvider.swift */,
+				B90664792844E695007B04A1 /* DiffableDatasource.swift */,
+			);
+			path = DiffiableDataSource;
+			sourceTree = "<group>";
+		};
+		B90664742844E695007B04A1 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				B90664752844E695007B04A1 /* LoadingCollectionCell.xib */,
+				B90664762844E695007B04A1 /* LoadingItem.swift */,
+				B90664772844E695007B04A1 /* LoadingCollectionCell.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		B90664812844E70E007B04A1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B90664822844E70E007B04A1 /* SchedulerContext.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B906647A2844E695007B04A1 /* LoadingCollectionCell.xib in Resources */,
 				B90664652844DC52007B04A1 /* Main.storyboard in Resources */,
 				B90664542844D741007B04A1 /* cities.json in Resources */,
 				B906641A2844D213007B04A1 /* Assets.xcassets in Resources */,
@@ -400,12 +446,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90664702844DD2C007B04A1 /* UIView+NibRepresentable.swift in Sources */,
+				B906647D2844E695007B04A1 /* SectionLayoutProvider.swift in Sources */,
+				B906647B2844E695007B04A1 /* LoadingItem.swift in Sources */,
 				B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */,
 				B90664522844D699007B04A1 /* CityModel.swift in Sources */,
+				B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */,
 				B90664112844D211007B04A1 /* AppDelegate.swift in Sources */,
+				B90664802844E6CE007B04A1 /* UICollectionView+Extension.swift in Sources */,
 				B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */,
 				B90664132844D211007B04A1 /* SceneDelegate.swift in Sources */,
 				B90664722844DD2C007B04A1 /* Coordinator.swift in Sources */,
+				B906647E2844E695007B04A1 /* DiffableDatasource.swift in Sources */,
+				B906647C2844E695007B04A1 /* LoadingCollectionCell.swift in Sources */,
 				B90664612844DB9F007B04A1 /* CitySearchViewModel.swift in Sources */,
 				B90664622844DB9F007B04A1 /* CitySearchViewCoordinator.swift in Sources */,
 				B90664632844DB9F007B04A1 /* CitySearchViewController.swift in Sources */,
