@@ -9,9 +9,20 @@ import UIKit
 
 class CityNameCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var countryNameWithCityLabel: UILabel!
+    @IBOutlet weak var locationCoordinatesLabel: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    var cityModel: CityModel! {
+        didSet {
+            countryNameWithCityLabel.text = cityModel.displayName
+            locationCoordinatesLabel.text = cityModel.displayCoordinates
+        }
     }
 
 }

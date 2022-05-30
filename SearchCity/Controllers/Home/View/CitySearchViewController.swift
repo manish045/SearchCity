@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class CitySearchViewController: UIViewController {
 
@@ -13,12 +14,14 @@ class CitySearchViewController: UIViewController {
     
     var viewModel: CitySearchViewModel!
     let scheduler: SchedulerContext = SchedulerContextProvider.provide()
+    private var disposeBag = Set<AnyCancellable>()
     
     private lazy var datasource = DiffableDatasource<CityNameSection, CityItem>(collectionView: collectionView!, scheduler: self.scheduler)
     { [unowned self] (collectionView, indexPath, item) -> UICollectionViewCell? in
         switch item {
         case .resultItem(let model):
             let cell = collectionView.dequeueCell(CityNameCollectionViewCell.self, indexPath: indexPath)
+            cell.cityModel = model
             return cell
         case .loading(let loadingItem):
             let cell = collectionView.dequeueCell(LoadingCollectionCell.self, indexPath: indexPath)
@@ -34,7 +37,9 @@ class CitySearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        createSnapshot(characterList: [], state: .loading) 
+        createSnapshot(cityList: [], state: .loading)
+        addViewModelObservers()
+        viewModel.loadCitiesData()
         // Do any additional setup after loading the view.
     }
 
@@ -44,7 +49,7 @@ class CitySearchViewController: UIViewController {
     }
     
     //MARK :- Create and construct a section snapshot, then apply to `main` section in data source.
-    func createSnapshot(characterList: CitiesModel, state: LoadingState) {
+    func createSnapshot(cityList: CitiesModel, state: LoadingState) {
         var snapshot = datasource.snapshot()
         snapshot.deleteAllItems()
         
@@ -52,7 +57,7 @@ class CitySearchViewController: UIViewController {
         snapshot.appendSections([.sections(.cityData)])
         
         //Serialize data according to cell model
-        let displayingItems: [ItemHolder<CityItem>] = characterList.map{.items(.resultItem($0))}
+        let displayingItems: [ItemHolder<CityItem>] = cityList.map{.items(.resultItem($0))}
         
         //Append cell to desired section
         snapshot.appendItems(displayingItems, toSection: .sections(.cityData))
@@ -65,5 +70,16 @@ class CitySearchViewController: UIViewController {
         
         //Apply snapshot to datasource to reload data in collectionView
         datasource.apply(snapshot)
+    }
+    
+    private func addViewModelObservers() {
+        viewModel.loadDataSource
+            .receive(on: scheduler.ui)
+            .sink { [weak self]  cityList in
+                guard let self = self else {return}
+                let state: LoadingState = .completed
+                self.createSnapshot(cityList: cityList, state: state)
+            }
+            .store(in: &disposeBag)
     }
 }

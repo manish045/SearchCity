@@ -62,19 +62,26 @@ class LaunchScreenViewController: UIViewController {
         group.notify(queue: queue) {
             /// setting up root view controller
             DispatchQueue.main.async {
-                self.createRootViewController()
+                self.createRootViewController(autoComplete: autocomplete,
+                                              cityDict: cityDict,
+                                              citiesModelArray: citiesModelArray)
             }
         }
     }
     
-    private func createRootViewController() {
+    private func createRootViewController(autoComplete: AutoComplete,
+                                          cityDict: [Int : CityModel],
+                                          citiesModelArray: CitiesModel) {
         
         //Following MVVM-C Architechture
         /// 1. Capture the scene
         guard let window = UIApplication.shared.windows.first else { return }
                 
         /// 2. Create a view hierarchy programmatically
-        let viewController = initalizeViewController()
+        let viewController = initalizeViewController(autoComplete: autoComplete,
+                                                     cityDict: cityDict,
+                                                     citiesModelArray: citiesModelArray)
+        
         let navigation = UINavigationController(rootViewController: viewController)
         
         /// 3. Set the root view controller of the window with your view controller
@@ -86,9 +93,13 @@ class LaunchScreenViewController: UIViewController {
         
     }
     
-    private func initalizeViewController() -> UIViewController {
-        coordinator = CitySearchViewCoordinator()
-        return (coordinator?.makeModule())!
+    private func initalizeViewController(autoComplete: AutoComplete,
+                                         cityDict: [Int : CityModel],
+                                         citiesModelArray: CitiesModel) -> UIViewController {
+        self.coordinator = CitySearchViewCoordinator()
+        return (coordinator?.makeModule(autoComplete: autoComplete,
+                                        cityDict: cityDict,
+                                        citiesModelArray: citiesModelArray))!
     }
     
     private func parseDataForAutoCompleteCities(cityName: String, autoComplete: AutoComplete) {
