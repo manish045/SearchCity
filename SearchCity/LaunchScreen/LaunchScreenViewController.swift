@@ -9,6 +9,7 @@ import UIKit
 
 class LaunchScreenViewController: UIViewController {
 
+    var coordinator: CitySearchViewCoordinator?
     let group = DispatchGroup()
 
     
@@ -59,8 +60,35 @@ class LaunchScreenViewController: UIViewController {
         }
         
         group.notify(queue: queue) {
-            /// Notifies when task is finished
+            /// setting up root view controller
+            DispatchQueue.main.async {
+                self.createRootViewController()
+            }
         }
+    }
+    
+    private func createRootViewController() {
+        
+        //Following MVVM-C Architechture
+        /// 1. Capture the scene
+        guard let window = UIApplication.shared.windows.first else { return }
+                
+        /// 2. Create a view hierarchy programmatically
+        let viewController = initalizeViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        
+        /// 3. Set the root view controller of the window with your view controller
+        window.rootViewController = navigation
+        coordinator?.start(from: viewController)
+        
+        /// 4. Set the window and call makeKeyAndVisible()
+        window.makeKeyAndVisible()
+        
+    }
+    
+    private func initalizeViewController() -> UIViewController {
+        coordinator = CitySearchViewCoordinator()
+        return (coordinator?.makeModule())!
     }
     
     private func parseDataForAutoCompleteCities(cityName: String, autoComplete: AutoComplete) {
