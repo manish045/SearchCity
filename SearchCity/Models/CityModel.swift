@@ -11,7 +11,7 @@ import Foundation
 
 typealias CitiesModel = [CityModel]
 
-struct CityModel: Codable {
+struct CityModel: Codable, Hashable {
     let country: String?
     let name: String?
     let id: Int
@@ -25,6 +25,16 @@ struct CityModel: Codable {
         case country, name
         case id = "_id"
         case coord
+    }
+    
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(id)
+    }
+    
+    static func == (lhs: CityModel, rhs: CityModel) -> Bool {
+        return lhs.country == rhs.country &&
+        lhs.name == rhs.name &&
+        lhs.id == rhs.id
     }
 }
 
