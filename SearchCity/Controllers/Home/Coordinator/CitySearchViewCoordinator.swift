@@ -19,15 +19,25 @@ class CitySearchViewCoordinator: Coordinator, CitySearchViewCoordinatorInput {
     }
     
     //Create View Controller instance with all possible initialization for viewModel and controller
-    func makeModule() -> UIViewController {
-        let vc = createViewController()
+    func makeModule(autoComplete: AutoComplete,
+                    cityDict: [Int : CityModel],
+                    citiesModelArray: CitiesModel) -> UIViewController {
+        
+        let vc = createViewController(autoComplete: autoComplete,
+                                      cityDict: cityDict,
+                                      citiesModelArray: citiesModelArray)
         return vc
     }
     
-    private func createViewController() -> CitySearchViewController {
+    private func createViewController(autoComplete: AutoComplete,
+                                      cityDict: [Int : CityModel],
+                                      citiesModelArray: CitiesModel) -> CitySearchViewController {
         // initializing view controller
         let view = CitySearchViewController.instantiateFromStoryboard()
-        let viewModel = CitySearchViewModel(coordinator: self)
+        let viewModel = CitySearchViewModel(coordinator: self,
+                                            autoComplete: autoComplete,
+                                            cityDict: cityDict,
+                                            citiesModelArray: citiesModelArray)
         view.viewModel = viewModel
         return view
     }

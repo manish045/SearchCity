@@ -17,6 +17,21 @@ struct CityModel: Codable, Hashable {
     let id: Int
     let coord: Coord?
     
+    var displayName: String {
+        var nameToBeDisplayed = String()
+        if !(name?.isEmpty ?? true) {
+            nameToBeDisplayed = name!
+        }
+        if !(country?.isEmpty ?? true) {
+            nameToBeDisplayed += ", \(country!)"
+        }
+        return nameToBeDisplayed
+    }
+    
+    var displayCoordinates: String {
+        return "\(coord?.lat ?? 0.0), \(coord?.lon ?? 0.0)"
+    }
+
     var cityNameWithID: String {
         return (name ?? "") + "_\(id)"
     }

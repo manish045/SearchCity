@@ -10,41 +10,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CityCollectionViewCell" customModule="SearchCity" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CityNameCollectionViewCell" customModule="SearchCity" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="212" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="212" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hUD-mZ-gI1">
-                        <rect key="frame" x="0.0" y="0.0" width="212" height="50"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hUD-mZ-gI1">
+                        <rect key="frame" x="0.0" y="0.0" width="212" height="39"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QCk-VE-EUC">
-                                <rect key="frame" x="0.0" y="0.0" width="212" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHB-MO-rsS">
+                                <rect key="frame" x="0.0" y="0.0" width="212" height="18.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFd-I4-KGO">
-                                <rect key="frame" x="0.0" y="50" width="212" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFd-I4-KGO">
+                                <rect key="frame" x="0.0" y="22.5" width="212" height="16.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2Z-Jr-qjW">
+                        <rect key="frame" x="0.0" y="49" width="212" height="1"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="MoJ-dJ-qDT"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="hUD-mZ-gI1" secondAttribute="trailing" id="Tal-zm-c4v"/>
-                <constraint firstAttribute="bottom" secondItem="hUD-mZ-gI1" secondAttribute="bottom" id="grs-it-Wxt"/>
-                <constraint firstItem="hUD-mZ-gI1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nbi-M6-SXO"/>
-                <constraint firstItem="hUD-mZ-gI1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wMZ-RH-M8f"/>
+                <constraint firstItem="h2Z-Jr-qjW" firstAttribute="top" secondItem="hUD-mZ-gI1" secondAttribute="bottom" constant="10" id="0ZB-AB-0Ct"/>
+                <constraint firstAttribute="bottom" secondItem="h2Z-Jr-qjW" secondAttribute="bottom" id="EIF-Pf-9Gd"/>
+                <constraint firstAttribute="trailing" secondItem="h2Z-Jr-qjW" secondAttribute="trailing" id="Whg-UJ-g3Z"/>
+                <constraint firstItem="h2Z-Jr-qjW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="udq-y4-Bsr"/>
+                <constraint firstAttribute="trailing" secondItem="hUD-mZ-gI1" secondAttribute="trailing" id="xOT-Be-hqO"/>
+                <constraint firstItem="hUD-mZ-gI1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zNI-Td-MVd"/>
+                <constraint firstItem="hUD-mZ-gI1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zcB-ZE-cll"/>
             </constraints>
             <size key="customSize" width="212" height="50"/>
+            <connections>
+                <outlet property="countryNameWithCityLabel" destination="QHB-MO-rsS" id="nMX-z2-XNf"/>
+                <outlet property="locationCoordinatesLabel" destination="wFd-I4-KGO" id="7WO-eO-piy"/>
+            </connections>
             <point key="canvasLocation" x="255.07246376811597" y="97.767857142857139"/>
         </collectionViewCell>
     </objects>
