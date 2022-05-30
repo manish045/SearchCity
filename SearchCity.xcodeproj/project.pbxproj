@@ -30,6 +30,9 @@
 		B906647E2844E695007B04A1 /* DiffableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664792844E695007B04A1 /* DiffableDatasource.swift */; };
 		B90664802844E6CE007B04A1 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906647F2844E6CE007B04A1 /* UICollectionView+Extension.swift */; };
 		B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664822844E70E007B04A1 /* SchedulerContext.swift */; };
+		B90664892844E8EC007B04A1 /* CityNameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664872844E8EC007B04A1 /* CityNameCollectionViewCell.swift */; };
+		B906648A2844E8EC007B04A1 /* CityNameCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90664882844E8EC007B04A1 /* CityNameCollectionViewCell.xib */; };
+		B906648C2844E9AA007B04A1 /*  CitySearchViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906648B2844E9AA007B04A1 /*  CitySearchViewSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		B90664792844E695007B04A1 /* DiffableDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffableDatasource.swift; sourceTree = "<group>"; };
 		B906647F2844E6CE007B04A1 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		B90664822844E70E007B04A1 /* SchedulerContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerContext.swift; sourceTree = "<group>"; };
+		B90664872844E8EC007B04A1 /* CityNameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNameCollectionViewCell.swift; sourceTree = "<group>"; };
+		B90664882844E8EC007B04A1 /* CityNameCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityNameCollectionViewCell.xib; sourceTree = "<group>"; };
+		B906648B2844E9AA007B04A1 /*  CitySearchViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CitySearchViewSection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B90664402844D259007B04A1 /* Application */,
-				B90664562844D9C3007B04A1 /* AutoComplete */,
-				B90664732844E695007B04A1 /* DiffiableDataSource */,
+				B90664842844E88F007B04A1 /* Cells */,
 				B90664502844D687007B04A1 /* Models */,
 				B90664412844D267007B04A1 /* LaunchScreen */,
 				B90664592844DB9F007B04A1 /* Controllers */,
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				B90664602844DB9F007B04A1 /* CitySearchViewController.swift */,
+				B906648B2844E9AA007B04A1 /*  CitySearchViewSection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 		B90664662844DCE8007B04A1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B90664732844E695007B04A1 /* DiffiableDataSource */,
+				B90664562844D9C3007B04A1 /* AutoComplete */,
 				B90664672844DD2C007B04A1 /* Extension */,
 				B906646C2844DD2C007B04A1 /* Protocol */,
 			);
@@ -311,6 +319,15 @@
 				B90664822844E70E007B04A1 /* SchedulerContext.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		B90664842844E88F007B04A1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B90664872844E8EC007B04A1 /* CityNameCollectionViewCell.swift */,
+				B90664882844E8EC007B04A1 /* CityNameCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B906647A2844E695007B04A1 /* LoadingCollectionCell.xib in Resources */,
+				B906648A2844E8EC007B04A1 /* CityNameCollectionViewCell.xib in Resources */,
 				B90664652844DC52007B04A1 /* Main.storyboard in Resources */,
 				B90664542844D741007B04A1 /* cities.json in Resources */,
 				B906641A2844D213007B04A1 /* Assets.xcassets in Resources */,
@@ -447,7 +465,9 @@
 			files = (
 				B90664702844DD2C007B04A1 /* UIView+NibRepresentable.swift in Sources */,
 				B906647D2844E695007B04A1 /* SectionLayoutProvider.swift in Sources */,
+				B906648C2844E9AA007B04A1 /*  CitySearchViewSection.swift in Sources */,
 				B906647B2844E695007B04A1 /* LoadingItem.swift in Sources */,
+				B90664892844E8EC007B04A1 /* CityNameCollectionViewCell.swift in Sources */,
 				B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */,
 				B90664522844D699007B04A1 /* CityModel.swift in Sources */,
 				B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */,
