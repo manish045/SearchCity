@@ -10,10 +10,20 @@ import Combine
 
 class CitySearchViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    private var searchBar = UISearchBar()
+    enum Section: Int, CaseIterable {
+        // This section shows the activity indicator untill all the data is fetched from server
+        case loader
 
+        // Shows the number of rows equal to the data fetched from server
+        case citiesData
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var searchBar = UISearchBar()
+    let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     var viewModel: CitySearchViewModel!
+    private var showLoader = true
     private var disposeBag = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -29,6 +39,7 @@ class CitySearchViewController: UIViewController {
     
     private func configureTableView() {
         tableView.registerNibCell(ofType: CityInfoTableViewCell.self)
+        tableView.registerNibCell(ofType: LoaderTableViewCell.self)
         tableView.dataSource = self
     }
     
@@ -59,23 +70,50 @@ class CitySearchViewController: UIViewController {
     
     private func addObservables() {
         viewModel.loadDataSource
+            .receive(on: scheduler.ui)
             .sink(receiveValue: { [weak self] in
-            guard let self = self else {return}
-            self.tableView.reloadData()
-        }).store(in: &disposeBag)
+                guard let self = self else {return}
+                self.tableView.reloadData()
+            }).store(in: &disposeBag)
+        
+        viewModel.showLoader
+            .receive(on: scheduler.ui)
+            .sink { [weak self] show in
+                guard let self = self else {return}
+                self.showLoader = show
+                self.tableView.reloadData()
+            }
+            .store(in: &disposeBag)
     }
 }
 
 extension CitySearchViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.citiesfilteredArray?.count ?? 0
+        
+        switch Section(rawValue: section) {
+        case .citiesData:
+            return self.viewModel.citiesfilteredArray?.count ?? 0
+        default:
+            return showLoader ? 1: 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueCell(ofType: CityInfoTableViewCell.self)
-        let cityModel = self.viewModel.citiesfilteredArray?[indexPath.row]
-        cell.cityModel = cityModel
-        return cell
+        switch Section(rawValue: indexPath.section) {
+        case .citiesData:
+            let cell = tableView.dequeueCell(ofType: CityInfoTableViewCell.self)
+            let cityModel = self.viewModel.citiesfilteredArray?[indexPath.row]
+            cell.cityModel = cityModel
+            return cell
+        default:
+            let cell = tableView.dequeueCell(ofType: LoaderTableViewCell.self)
+            cell.animateIndicator(show: self.showLoader)
+            return cell
+        }
     }
 }
