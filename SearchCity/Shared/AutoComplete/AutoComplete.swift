@@ -86,7 +86,7 @@ class AutoComplete: NSObject, NSCoding {
     }
 }
 
-// MARK: - Adds methods: insert, remove, contains
+// MARK: - Adds methods: insert, contains
 extension AutoComplete {
     /// Inserts a word into the trie.  If the word is already present,
     /// there is no change.

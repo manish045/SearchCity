@@ -121,3 +121,12 @@ extension CitySearchViewController: UITableViewDataSource {
         }
     }
 }
+
+extension CitySearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cityModel = (self.viewModel.citiesfilteredArray?[indexPath.row]) {
+            self.viewModel.showCityCoordinatesOnMap(model: cityModel)
+        }
+    }
+}

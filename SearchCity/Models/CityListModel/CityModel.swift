@@ -55,5 +55,5 @@ struct CityModel: Codable, Hashable {
 
 // MARK: - Coord
 struct Coord: Codable {
-    let lon, lat: Double
+    let lon, lat: Double?
 }

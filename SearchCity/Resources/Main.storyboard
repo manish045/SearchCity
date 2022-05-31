@@ -59,6 +59,9 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EQN-CX-Adz">
                                         <rect key="frame" x="0.0" y="51" width="384" height="767"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vz5-re-0vO" id="lR8-dU-kc2"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </stackView>
@@ -88,9 +91,23 @@
                     <view key="view" contentMode="scaleToFill" id="1Jz-js-wIX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ey3-rB-FND">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2uz-Fd-c1r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ey3-rB-FND" firstAttribute="top" secondItem="2uz-Fd-c1r" secondAttribute="top" id="5qu-lp-bGQ"/>
+                            <constraint firstItem="Ey3-rB-FND" firstAttribute="leading" secondItem="2uz-Fd-c1r" secondAttribute="leading" id="HCl-db-sWR"/>
+                            <constraint firstItem="2uz-Fd-c1r" firstAttribute="bottom" secondItem="Ey3-rB-FND" secondAttribute="bottom" id="JPj-t8-som"/>
+                            <constraint firstItem="2uz-Fd-c1r" firstAttribute="trailing" secondItem="Ey3-rB-FND" secondAttribute="trailing" id="iYw-1P-7E8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ey3-rB-FND" id="Jot-dM-t1s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bec-vi-tzW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

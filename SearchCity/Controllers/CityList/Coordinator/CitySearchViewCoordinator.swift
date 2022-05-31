@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CitySearchViewCoordinatorInput {
-    
+    func showCityCoordinatesOnMap(model: CityMapModel)
 }
 
 class CitySearchViewCoordinator: Coordinator, CitySearchViewCoordinatorInput {
@@ -40,5 +40,10 @@ class CitySearchViewCoordinator: Coordinator, CitySearchViewCoordinatorInput {
                                             citiesModelArray: citiesModelArray)
         view.viewModel = viewModel
         return view
+    }
+    
+    func showCityCoordinatesOnMap(model: CityMapModel) {
+        let vc = CityLocationCoordinator().makeModule(cityMapModel: model)
+        rootController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
