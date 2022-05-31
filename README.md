@@ -2,8 +2,8 @@
 
 
 Minimum Requirement:-
-  a) Xcode Version 13.2.1 or above
-  b) Minimum iOS version 13.0
+  1) Xcode Version 13.2.1 or above
+  2) Minimum iOS version 13.0
 
 To Run project:-
 1) Clone the repository
