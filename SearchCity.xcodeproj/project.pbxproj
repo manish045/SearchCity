@@ -42,6 +42,7 @@
 		B9F0E8E22846C701007B2737 /* LaunchScreenDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */; };
 		B9F0E8E52846C727007B2737 /* citiesSample.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F0E8E42846C727007B2737 /* citiesSample.json */; };
 		B9F0E8E72846CAA1007B2737 /* TrieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0E8E62846CAA1007B2737 /* TrieTest.swift */; };
+		B9F0E8E92846CEC3007B2737 /* CitySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0E8E82846CEC3007B2737 /* CitySearchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenDataTest.swift; sourceTree = "<group>"; };
 		B9F0E8E42846C727007B2737 /* citiesSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citiesSample.json; sourceTree = "<group>"; };
 		B9F0E8E62846CAA1007B2737 /* TrieTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieTest.swift; sourceTree = "<group>"; };
+		B9F0E8E82846CEC3007B2737 /* CitySearchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySearchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +170,9 @@
 			isa = PBXGroup;
 			children = (
 				B9F0E8E32846C727007B2737 /* SampleJson */,
-				B9F0E8E62846CAA1007B2737 /* TrieTest.swift */,
 				B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */,
+				B9F0E8E62846CAA1007B2737 /* TrieTest.swift */,
+				B9F0E8E82846CEC3007B2737 /* CitySearchTests.swift */,
 			);
 			path = SearchCityTests;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 			files = (
 				B9F0E8E22846C701007B2737 /* LaunchScreenDataTest.swift in Sources */,
 				B9F0E8E72846CAA1007B2737 /* TrieTest.swift in Sources */,
+				B9F0E8E92846CEC3007B2737 /* CitySearchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
