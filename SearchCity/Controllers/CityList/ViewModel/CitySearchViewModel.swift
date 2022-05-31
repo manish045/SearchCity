@@ -11,6 +11,7 @@ import Combine
 protocol CitySearchViewModelInput {
     func loadCitiesData()
     func searchCityWithPrefix(prefix: String)
+    func showCityCoordinatesOnMap(model: CityModel)
 }
 
 protocol CitySearchViewModelOutput {
@@ -77,4 +78,11 @@ final class CitySearchViewModel: DefaultCitySearchViewModel {
     private func sortCityData(cityDict: [CityModel]) {
         self.citiesfilteredArray = cityDict.sorted{$0.cityNameWithID < $1.cityNameWithID}
     }
+    
+    func showCityCoordinatesOnMap(model: CityModel) {
+        guard let coord = model.coord, let lat = coord.lat, let lon = coord.lon else {return}
+        let mapModel = CityMapModel(lat: lat, long: lon, name: model.displayName)
+        self.coordinator.showCityCoordinatesOnMap(model: mapModel)
+    }
+    
 }

@@ -14,7 +14,6 @@ class CitySearchViewController: UIViewController {
         // This section shows the activity indicator untill all the data is fetched from server
         case loader
 
-        
         // Shows the number of rows equal to the data fetched from server
         case citiesData
         
@@ -23,14 +22,16 @@ class CitySearchViewController: UIViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet weak var searchBar: UISearchBar!
     
     let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     
     var viewModel: CitySearchViewModel!
+    
     private var showLoader = true
     private var disposeBag = Set<AnyCancellable>()
-    
+
     override func viewDidLoad() {
         title = LConstant.CitySearchViewController.title
         self.addObservables()
@@ -46,9 +47,7 @@ class CitySearchViewController: UIViewController {
         tableView.registerNibCell(ofType: CityInfoTableViewCell.self)
         tableView.registerNibCell(ofType: NoDataFoundTableViewCell.self)
         tableView.registerNibCell(ofType: LoaderTableViewCell.self)
-        
         tableView.dataSource = self
-        tableView.delegate = self
     }
     
     // observing characters changein searchbar
@@ -90,8 +89,9 @@ extension CitySearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.allCases.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch Section(rawValue: section) {
         case .citiesData:
             return self.viewModel.citiesfilteredArray?.count ?? 0
@@ -101,7 +101,7 @@ extension CitySearchViewController: UITableViewDataSource {
             return showLoader ? 1: 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Section(rawValue: indexPath.section) {
         case .citiesData:
@@ -123,9 +123,10 @@ extension CitySearchViewController: UITableViewDataSource {
 }
 
 extension CitySearchViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cityModel = (self.viewModel.citiesfilteredArray?[indexPath.row]) {
-            self.viewModel.showCoordinatesOnMap(cityModel: cityModel)
+            self.viewModel.showCityCoordinatesOnMap(model: cityModel)
         }
     }
 }

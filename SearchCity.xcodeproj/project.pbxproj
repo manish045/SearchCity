@@ -10,7 +10,6 @@
 		B90664112844D211007B04A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664102844D211007B04A1 /* AppDelegate.swift */; };
 		B90664132844D211007B04A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664122844D211007B04A1 /* SceneDelegate.swift */; };
 		B906641A2844D213007B04A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B90664192844D213007B04A1 /* Assets.xcassets */; };
-		B90664282844D213007B04A1 /* SearchCityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664272844D213007B04A1 /* SearchCityTests.swift */; };
 		B90664322844D213007B04A1 /* SearchCityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664312844D213007B04A1 /* SearchCityUITests.swift */; };
 		B90664342844D213007B04A1 /* SearchCityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664332844D213007B04A1 /* SearchCityUITestsLaunchTests.swift */; };
 		B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664422844D283007B04A1 /* LaunchScreenViewController.swift */; };
@@ -25,6 +24,10 @@
 		B90664722844DD2C007B04A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906646E2844DD2C007B04A1 /* Coordinator.swift */; };
 		B90664802844E6CE007B04A1 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B906647F2844E6CE007B04A1 /* UITableView+Extension.swift */; };
 		B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90664822844E70E007B04A1 /* SchedulerContext.swift */; };
+		B91F64ED2846343900529621 /* CityLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F64EC2846343900529621 /* CityLocationViewController.swift */; };
+		B91F64EF2846344D00529621 /* CityLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F64EE2846344D00529621 /* CityLocationViewModel.swift */; };
+		B91F64F12846345600529621 /* CityLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F64F02846345600529621 /* CityLocationCoordinator.swift */; };
+		B91F64F52846364E00529621 /* CityMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F64F42846364E00529621 /* CityMapModel.swift */; };
 		B9821B35284605D5009C70A1 /* CityInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B33284605D5009C70A1 /* CityInfoTableViewCell.swift */; };
 		B9821B36284605D5009C70A1 /* CityInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B34284605D5009C70A1 /* CityInfoTableViewCell.xib */; };
 		B9821B43284616FD009C70A1 /* LoaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B41284616FD009C70A1 /* LoaderTableViewCell.xib */; };
@@ -62,7 +65,6 @@
 		B90664192844D213007B04A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B906641E2844D213007B04A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90664232844D213007B04A1 /* SearchCityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchCityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B90664272844D213007B04A1 /* SearchCityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityTests.swift; sourceTree = "<group>"; };
 		B906642D2844D213007B04A1 /* SearchCityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchCityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90664312844D213007B04A1 /* SearchCityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityUITests.swift; sourceTree = "<group>"; };
 		B90664332844D213007B04A1 /* SearchCityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -78,6 +80,10 @@
 		B906646E2844DD2C007B04A1 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B906647F2844E6CE007B04A1 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B90664822844E70E007B04A1 /* SchedulerContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerContext.swift; sourceTree = "<group>"; };
+		B91F64EC2846343900529621 /* CityLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityLocationViewController.swift; sourceTree = "<group>"; };
+		B91F64EE2846344D00529621 /* CityLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityLocationViewModel.swift; sourceTree = "<group>"; };
+		B91F64F02846345600529621 /* CityLocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityLocationCoordinator.swift; sourceTree = "<group>"; };
+		B91F64F42846364E00529621 /* CityMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapModel.swift; sourceTree = "<group>"; };
 		B9821B33284605D5009C70A1 /* CityInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B9821B34284605D5009C70A1 /* CityInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityInfoTableViewCell.xib; sourceTree = "<group>"; };
 		B9821B41284616FD009C70A1 /* LoaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,7 +161,6 @@
 		B90664262844D213007B04A1 /* SearchCityTests */ = {
 			isa = PBXGroup;
 			children = (
-				B90664272844D213007B04A1 /* SearchCityTests.swift */,
 			);
 			path = SearchCityTests;
 			sourceTree = "<group>";
@@ -190,7 +195,8 @@
 		B90664502844D687007B04A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B90664512844D699007B04A1 /* CityModel.swift */,
+				B91F64F32846363900529621 /* CityLocationModel */,
+				B91F64F22846360600529621 /* CityListModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,19 +222,20 @@
 		B90664592844DB9F007B04A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B906645A2844DB9F007B04A1 /* Home */,
+				B91F64E82846337C00529621 /* CityLocation */,
+				B906645A2844DB9F007B04A1 /* CityList */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B906645A2844DB9F007B04A1 /* Home */ = {
+		B906645A2844DB9F007B04A1 /* CityList */ = {
 			isa = PBXGroup;
 			children = (
 				B906645B2844DB9F007B04A1 /* ViewModel */,
 				B906645D2844DB9F007B04A1 /* Coordinator */,
 				B906645F2844DB9F007B04A1 /* View */,
 			);
-			path = Home;
+			path = CityList;
 			sourceTree = "<group>";
 		};
 		B906645B2844DB9F007B04A1 /* ViewModel */ = {
@@ -317,6 +324,56 @@
 				B9821B37284612D3009C70A1 /* CityInfo */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B91F64E82846337C00529621 /* CityLocation */ = {
+			isa = PBXGroup;
+			children = (
+				B91F64EB284633D600529621 /* Coordinator */,
+				B91F64EA284633CF00529621 /* ViewModel */,
+				B91F64E92846338A00529621 /* View */,
+			);
+			path = CityLocation;
+			sourceTree = "<group>";
+		};
+		B91F64E92846338A00529621 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B91F64EC2846343900529621 /* CityLocationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B91F64EA284633CF00529621 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B91F64EE2846344D00529621 /* CityLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B91F64EB284633D600529621 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B91F64F02846345600529621 /* CityLocationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B91F64F22846360600529621 /* CityListModel */ = {
+			isa = PBXGroup;
+			children = (
+				B90664512844D699007B04A1 /* CityModel.swift */,
+			);
+			path = CityListModel;
+			sourceTree = "<group>";
+		};
+		B91F64F32846363900529621 /* CityLocationModel */ = {
+			isa = PBXGroup;
+			children = (
+				B91F64F42846364E00529621 /* CityMapModel.swift */,
+			);
+			path = CityLocationModel;
 			sourceTree = "<group>";
 		};
 		B9821B37284612D3009C70A1 /* CityInfo */ = {
@@ -504,12 +561,16 @@
 				B9821B35284605D5009C70A1 /* CityInfoTableViewCell.swift in Sources */,
 				B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */,
 				B90664522844D699007B04A1 /* CityModel.swift in Sources */,
+				B91F64F12846345600529621 /* CityLocationCoordinator.swift in Sources */,
 				B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */,
 				B9821B4B28461968009C70A1 /* EmptyView.swift in Sources */,
+				B91F64ED2846343900529621 /* CityLocationViewController.swift in Sources */,
 				B90664112844D211007B04A1 /* AppDelegate.swift in Sources */,
 				B9821B4F284619B8009C70A1 /* NoDataFoundTableViewCell.swift in Sources */,
 				B90664802844E6CE007B04A1 /* UITableView+Extension.swift in Sources */,
+				B91F64EF2846344D00529621 /* CityLocationViewModel.swift in Sources */,
 				B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */,
+				B91F64F52846364E00529621 /* CityMapModel.swift in Sources */,
 				B90664132844D211007B04A1 /* SceneDelegate.swift in Sources */,
 				B9821B5328461A72009C70A1 /* AppConstant.swift in Sources */,
 				B90664722844DD2C007B04A1 /* Coordinator.swift in Sources */,
@@ -524,7 +585,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B90664282844D213007B04A1 /* SearchCityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
