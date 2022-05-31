@@ -9,78 +9,73 @@ import UIKit
 import Combine
 
 class CitySearchViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    private var searchBar = UISearchBar()
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     var viewModel: CitySearchViewModel!
-    let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     private var disposeBag = Set<AnyCancellable>()
-    
-    private lazy var datasource = DiffableDatasource<CityNameSection, CityItem>(collectionView: collectionView!, scheduler: self.scheduler)
-    { [unowned self] (collectionView, indexPath, item) -> UICollectionViewCell? in
-        switch item {
-        case .resultItem(let model):
-            let cell = collectionView.dequeueCell(CityNameCollectionViewCell.self, indexPath: indexPath)
-            cell.cityModel = model
-            return cell
-        case .loading(let loadingItem):
-            let cell = collectionView.dequeueCell(LoadingCollectionCell.self, indexPath: indexPath)
-            cell.configure(data: loadingItem)
-            return cell
-        }
-    } supplementaryViewProvider: {
-        [unowned self] (collectionView, kind, indexPath, section) -> UICollectionReusableView? in
-        return nil
-    }
-    
-    
+
     override func viewDidLoad() {
+        title = "Search Cities"
+        self.addObservables()
         super.viewDidLoad()
-        title = "Search City"
-        configureCollectionView()
-        createSnapshot(cityList: [], state: .loading)
-        addViewModelObservers()
-        viewModel.loadCitiesData()
+        configureTableView()
+        configureSearchBar()
+        self.viewModel.loadCitiesData()
+        self.setupSearchBarListeners()
         // Do any additional setup after loading the view.
     }
-
-    //Register Cells for collectionView
-    private func configureCollectionView() {
-        collectionView.registerNibCell(ofType: CityNameCollectionViewCell.self)
+    
+    private func configureTableView() {
+        tableView.registerNibCell(ofType: CityInfoTableViewCell.self)
+        tableView.dataSource = self
     }
     
-    //MARK :- Create and construct a section snapshot, then apply to `main` section in data source.
-    func createSnapshot(cityList: CitiesModel, state: LoadingState) {
-        var snapshot = datasource.snapshot()
-        snapshot.deleteAllItems()
+    private func configureSearchBar() {
+        searchBar.placeholder = "Search..."
+        searchBar.sizeToFit()
         
-        //Append Section to snapshot
-        snapshot.appendSections([.sections(.cityData)])
-        
-        //Serialize data according to cell model
-        let displayingItems: [ItemHolder<CityItem>] = cityList.map{.items(.resultItem($0))}
-        
-        //Append cell to desired section
-        snapshot.appendItems(displayingItems, toSection: .sections(.cityData))
-        
-        if state == .default || state == .loading{
-            snapshot.appendSections([.loading])
-            let loadingItem = LoadingItem(state: state)
-            snapshot.appendItems([.loading(loadingItem)], toSection: .loading)
+        // the UIViewController comes with a navigationItem property
+        // this will automatically be initialized for you if when the
+        // view controller is added to a navigation controller's stack
+        // you just need to set the titleView to be the search bar
+        navigationItem.titleView = searchBar
+    }
+    
+    // observing characters changein searchbar
+    private func setupSearchBarListeners() {
+        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: self.searchBar.searchTextField)
+        publisher.map {
+            ($0.object as! UITextField).text ?? ""
         }
-        
-        //Apply snapshot to datasource to reload data in collectionView
-        datasource.apply(snapshot)
+        .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+        .removeDuplicates()
+        .sink { [weak self] searchText in
+            self?.viewModel.searchCityWithPrefix(prefix: searchText)
+        }
+        .store(in: &disposeBag)
     }
     
-    private func addViewModelObservers() {
+    private func addObservables() {
         viewModel.loadDataSource
-            .receive(on: scheduler.ui)
-            .sink { [weak self]  cityList in
-                guard let self = self else {return}
-                let state: LoadingState = .completed
-                self.createSnapshot(cityList: cityList, state: state)
-            }
-            .store(in: &disposeBag)
+            .sink(receiveValue: { [weak self] in
+            guard let self = self else {return}
+            self.tableView.reloadData()
+        }).store(in: &disposeBag)
+    }
+}
+
+extension CitySearchViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.citiesfilteredArray?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueCell(ofType: CityInfoTableViewCell.self)
+        let cityModel = self.viewModel.citiesfilteredArray?[indexPath.row]
+        cell.cityModel = cityModel
+        return cell
     }
 }
