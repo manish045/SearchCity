@@ -39,6 +39,8 @@
 		B9821B50284619B8009C70A1 /* NoDataFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B4E284619B8009C70A1 /* NoDataFoundTableViewCell.xib */; };
 		B9821B5328461A72009C70A1 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B5228461A72009C70A1 /* AppConstant.swift */; };
 		B9C803DD2844F65D000D0831 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C803DC2844F65C000D0831 /* AppAppearance.swift */; };
+		B9F0E8E22846C701007B2737 /* LaunchScreenDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */; };
+		B9F0E8E52846C727007B2737 /* citiesSample.json in Resources */ = {isa = PBXBuildFile; fileRef = B9F0E8E42846C727007B2737 /* citiesSample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		B9821B4E284619B8009C70A1 /* NoDataFoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataFoundTableViewCell.xib; sourceTree = "<group>"; };
 		B9821B5228461A72009C70A1 /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		B9C803DC2844F65C000D0831 /* AppAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenDataTest.swift; sourceTree = "<group>"; };
+		B9F0E8E42846C727007B2737 /* citiesSample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citiesSample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 		B90664262844D213007B04A1 /* SearchCityTests */ = {
 			isa = PBXGroup;
 			children = (
+				B9F0E8E32846C727007B2737 /* SampleJson */,
+				B9F0E8E12846C701007B2737 /* LaunchScreenDataTest.swift */,
 			);
 			path = SearchCityTests;
 			sourceTree = "<group>";
@@ -420,6 +426,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		B9F0E8E32846C727007B2737 /* SampleJson */ = {
+			isa = PBXGroup;
+			children = (
+				B9F0E8E42846C727007B2737 /* citiesSample.json */,
+			);
+			path = SampleJson;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +505,7 @@
 					};
 					B90664222844D213007B04A1 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 						TestTargetID = B906640C2844D211007B04A1;
 					};
 					B906642C2844D213007B04A1 = {
@@ -538,6 +553,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F0E8E52846C727007B2737 /* citiesSample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F0E8E22846C701007B2737 /* LaunchScreenDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,14 +805,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = UITestSampleIdentifier.SearchCityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SearchCity.app/SearchCity";
@@ -807,10 +831,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = UITestSampleIdentifier.SearchCityTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
