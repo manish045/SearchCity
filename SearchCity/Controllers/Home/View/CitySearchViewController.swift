@@ -16,6 +16,9 @@ class CitySearchViewController: UIViewController {
 
         // Shows the number of rows equal to the data fetched from server
         case citiesData
+        
+        //Shows search result is 0
+        case noDataFound
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,7 +30,7 @@ class CitySearchViewController: UIViewController {
     private var disposeBag = Set<AnyCancellable>()
 
     override func viewDidLoad() {
-        title = "Search Cities"
+        title = LConstant.CitySearchViewController.title
         self.addObservables()
         super.viewDidLoad()
         configureTableView()
@@ -37,20 +40,18 @@ class CitySearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Configure tableView
     private func configureTableView() {
         tableView.registerNibCell(ofType: CityInfoTableViewCell.self)
+        tableView.registerNibCell(ofType: NoDataFoundTableViewCell.self)
         tableView.registerNibCell(ofType: LoaderTableViewCell.self)
         tableView.dataSource = self
     }
     
+    //Configure Search bar
     private func configureSearchBar() {
-        searchBar.placeholder = "Search..."
+        searchBar.placeholder = LConstant.CitySearchViewController.searchPlaceholder
         searchBar.sizeToFit()
-        
-        // the UIViewController comes with a navigationItem property
-        // this will automatically be initialized for you if when the
-        // view controller is added to a navigation controller's stack
-        // you just need to set the titleView to be the search bar
         navigationItem.titleView = searchBar
     }
     
@@ -68,6 +69,7 @@ class CitySearchViewController: UIViewController {
         .store(in: &disposeBag)
     }
     
+    // add observers from viewModel
     private func addObservables() {
         viewModel.loadDataSource
             .receive(on: scheduler.ui)
@@ -98,6 +100,8 @@ extension CitySearchViewController: UITableViewDataSource {
         switch Section(rawValue: section) {
         case .citiesData:
             return self.viewModel.citiesfilteredArray?.count ?? 0
+        case .noDataFound:
+            return viewModel.emptySearchResult ? 1 : 0
         default:
             return showLoader ? 1: 0
         }
@@ -110,6 +114,11 @@ extension CitySearchViewController: UITableViewDataSource {
             let cityModel = self.viewModel.citiesfilteredArray?[indexPath.row]
             cell.cityModel = cityModel
             return cell
+            
+        case .noDataFound:
+            let cell = tableView.dequeueCell(ofType: NoDataFoundTableViewCell.self)
+            return cell
+            
         default:
             let cell = tableView.dequeueCell(ofType: LoaderTableViewCell.self)
             cell.animateIndicator(show: self.showLoader)

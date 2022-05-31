@@ -29,6 +29,12 @@
 		B9821B36284605D5009C70A1 /* CityInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B34284605D5009C70A1 /* CityInfoTableViewCell.xib */; };
 		B9821B43284616FD009C70A1 /* LoaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B41284616FD009C70A1 /* LoaderTableViewCell.xib */; };
 		B9821B44284616FD009C70A1 /* LoaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B42284616FD009C70A1 /* LoaderTableViewCell.swift */; };
+		B9821B4928461968009C70A1 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B4528461968009C70A1 /* NibView.swift */; };
+		B9821B4A28461968009C70A1 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B4728461968009C70A1 /* EmptyView.xib */; };
+		B9821B4B28461968009C70A1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B4828461968009C70A1 /* EmptyView.swift */; };
+		B9821B4F284619B8009C70A1 /* NoDataFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B4D284619B8009C70A1 /* NoDataFoundTableViewCell.swift */; };
+		B9821B50284619B8009C70A1 /* NoDataFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9821B4E284619B8009C70A1 /* NoDataFoundTableViewCell.xib */; };
+		B9821B5328461A72009C70A1 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821B5228461A72009C70A1 /* AppConstant.swift */; };
 		B9C803DD2844F65D000D0831 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C803DC2844F65C000D0831 /* AppAppearance.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +82,12 @@
 		B9821B34284605D5009C70A1 /* CityInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityInfoTableViewCell.xib; sourceTree = "<group>"; };
 		B9821B41284616FD009C70A1 /* LoaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderTableViewCell.xib; sourceTree = "<group>"; };
 		B9821B42284616FD009C70A1 /* LoaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderTableViewCell.swift; sourceTree = "<group>"; };
+		B9821B4528461968009C70A1 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		B9821B4728461968009C70A1 /* EmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		B9821B4828461968009C70A1 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		B9821B4D284619B8009C70A1 /* NoDataFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataFoundTableViewCell.swift; sourceTree = "<group>"; };
+		B9821B4E284619B8009C70A1 /* NoDataFoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataFoundTableViewCell.xib; sourceTree = "<group>"; };
+		B9821B5228461A72009C70A1 /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		B9C803DC2844F65C000D0831 /* AppAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,7 +258,9 @@
 		B90664662844DCE8007B04A1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B9821B5128461A3B009C70A1 /* Common */,
 				B90664562844D9C3007B04A1 /* AutoComplete */,
+				B9821B4628461968009C70A1 /* EmptyView */,
 				B90664672844DD2C007B04A1 /* Extension */,
 				B906646C2844DD2C007B04A1 /* Protocol */,
 			);
@@ -264,6 +278,7 @@
 		B90664682844DD2C007B04A1 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B9821B4528461968009C70A1 /* NibView.swift */,
 				B906647F2844E6CE007B04A1 /* UITableView+Extension.swift */,
 				B906646A2844DD2C007B04A1 /* UIView+NibRepresentable.swift */,
 			);
@@ -297,6 +312,7 @@
 		B90664842844E88F007B04A1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B9821B4C2846199F009C70A1 /* NoData */,
 				B9821B40284616FD009C70A1 /* LoaderCell */,
 				B9821B37284612D3009C70A1 /* CityInfo */,
 			);
@@ -319,6 +335,32 @@
 				B9821B42284616FD009C70A1 /* LoaderTableViewCell.swift */,
 			);
 			path = LoaderCell;
+			sourceTree = "<group>";
+		};
+		B9821B4628461968009C70A1 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				B9821B4728461968009C70A1 /* EmptyView.xib */,
+				B9821B4828461968009C70A1 /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		B9821B4C2846199F009C70A1 /* NoData */ = {
+			isa = PBXGroup;
+			children = (
+				B9821B4D284619B8009C70A1 /* NoDataFoundTableViewCell.swift */,
+				B9821B4E284619B8009C70A1 /* NoDataFoundTableViewCell.xib */,
+			);
+			path = NoData;
+			sourceTree = "<group>";
+		};
+		B9821B5128461A3B009C70A1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B9821B5228461A72009C70A1 /* AppConstant.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,9 +468,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9821B36284605D5009C70A1 /* CityInfoTableViewCell.xib in Resources */,
+				B9821B50284619B8009C70A1 /* NoDataFoundTableViewCell.xib in Resources */,
 				B90664652844DC52007B04A1 /* Main.storyboard in Resources */,
 				B90664542844D741007B04A1 /* cities.json in Resources */,
 				B906641A2844D213007B04A1 /* Assets.xcassets in Resources */,
+				B9821B4A28461968009C70A1 /* EmptyView.xib in Resources */,
 				B9821B43284616FD009C70A1 /* LoaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,11 +505,15 @@
 				B90664582844D9D5007B04A1 /* AutoComplete.swift in Sources */,
 				B90664522844D699007B04A1 /* CityModel.swift in Sources */,
 				B90664832844E70E007B04A1 /* SchedulerContext.swift in Sources */,
+				B9821B4B28461968009C70A1 /* EmptyView.swift in Sources */,
 				B90664112844D211007B04A1 /* AppDelegate.swift in Sources */,
+				B9821B4F284619B8009C70A1 /* NoDataFoundTableViewCell.swift in Sources */,
 				B90664802844E6CE007B04A1 /* UITableView+Extension.swift in Sources */,
 				B90664432844D283007B04A1 /* LaunchScreenViewController.swift in Sources */,
 				B90664132844D211007B04A1 /* SceneDelegate.swift in Sources */,
+				B9821B5328461A72009C70A1 /* AppConstant.swift in Sources */,
 				B90664722844DD2C007B04A1 /* Coordinator.swift in Sources */,
+				B9821B4928461968009C70A1 /* NibView.swift in Sources */,
 				B90664612844DB9F007B04A1 /* CitySearchViewModel.swift in Sources */,
 				B90664622844DB9F007B04A1 /* CitySearchViewCoordinator.swift in Sources */,
 				B90664632844DB9F007B04A1 /* CitySearchViewController.swift in Sources */,
