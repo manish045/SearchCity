@@ -15,6 +15,7 @@ protocol CitySearchViewModelInput {
 
 protocol CitySearchViewModelOutput {
     var loadDataSource: PassthroughSubject<Void, Never> { get}
+    var showLoader: PassthroughSubject<Bool, Never> {get}
     var citiesfilteredArray: CitiesModel? {get}
 }
 
@@ -28,9 +29,12 @@ final class CitySearchViewModel: DefaultCitySearchViewModel {
     private var citiesModel: CitiesModel
 
     var loadDataSource = PassthroughSubject<Void, Never>()
+    var showLoader = PassthroughSubject<Bool, Never>()
+    
     var citiesfilteredArray: CitiesModel? {
         didSet {
             self.loadDataSource.send()
+            self.showLoader.send(false)
         }
     }
 
@@ -51,7 +55,7 @@ final class CitySearchViewModel: DefaultCitySearchViewModel {
     }
     
     func searchCityWithPrefix(prefix: String) {
-        self.citiesfilteredArray = []
+        self.showLoader.send(true)
         var filterCityDict = [CityModel]()
         if prefix.isEmpty{
             loadCitiesData()
