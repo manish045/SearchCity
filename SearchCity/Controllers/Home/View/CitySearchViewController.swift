@@ -27,8 +27,6 @@ class CitySearchViewController: UIViewController {
     
     let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     
-    private var searchBar = UISearchBar()
-    let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     var viewModel: CitySearchViewModel!
     private var showLoader = true
     private var disposeBag = Set<AnyCancellable>()

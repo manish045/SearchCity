@@ -45,13 +45,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EQN-CX-Adz">
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ITr-Ro-jgg">
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EQN-CX-Adz">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TrD-0P-QaK">
                                 <rect key="frame" x="15" y="44" width="384" height="818"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="Search City" translatesAutoresizingMaskIntoConstraints="NO" id="up8-DL-8N8">
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search City" id="yRD-Wq-rmN">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -66,14 +65,14 @@
                         <viewLayoutGuide key="safeArea" id="oP4-vL-3T3"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="bottom" secondItem="oP4-vL-3T3" secondAttribute="bottom" id="goC-Vf-hG6"/>
-                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="top" secondItem="oP4-vL-3T3" secondAttribute="top" id="lh5-y7-o2T"/>
-                            <constraint firstItem="oP4-vL-3T3" firstAttribute="trailing" secondItem="ITr-Ro-jgg" secondAttribute="trailing" constant="15" id="lj9-sS-SQo"/>
-                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="leading" secondItem="oP4-vL-3T3" secondAttribute="leading" constant="15" id="zGA-zp-2is"/>
+                            <constraint firstItem="TrD-0P-QaK" firstAttribute="bottom" secondItem="oP4-vL-3T3" secondAttribute="bottom" id="EF0-ag-Ovd"/>
+                            <constraint firstItem="TrD-0P-QaK" firstAttribute="top" secondItem="oP4-vL-3T3" secondAttribute="top" id="KJf-p2-uo3"/>
+                            <constraint firstItem="oP4-vL-3T3" firstAttribute="trailing" secondItem="TrD-0P-QaK" secondAttribute="trailing" constant="15" id="VOp-xj-3AC"/>
+                            <constraint firstItem="TrD-0P-QaK" firstAttribute="leading" secondItem="oP4-vL-3T3" secondAttribute="leading" constant="15" id="pss-zq-OeR"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="up8-DL-8N8" id="K4W-wb-hGT"/>
+                        <outlet property="searchBar" destination="yRD-Wq-rmN" id="fvS-Sd-XCb"/>
                         <outlet property="tableView" destination="EQN-CX-Adz" id="eZM-dv-4tl"/>
                     </connections>
                 </viewController>
