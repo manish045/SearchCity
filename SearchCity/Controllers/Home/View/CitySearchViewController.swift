@@ -22,6 +22,10 @@ class CitySearchViewController: UIViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let scheduler: SchedulerContext = SchedulerContextProvider.provide()
     
     private var searchBar = UISearchBar()
     let scheduler: SchedulerContext = SchedulerContextProvider.provide()
@@ -34,7 +38,6 @@ class CitySearchViewController: UIViewController {
         self.addObservables()
         super.viewDidLoad()
         configureTableView()
-        configureSearchBar()
         self.viewModel.loadCitiesData()
         self.setupSearchBarListeners()
         // Do any additional setup after loading the view.
@@ -46,13 +49,6 @@ class CitySearchViewController: UIViewController {
         tableView.registerNibCell(ofType: NoDataFoundTableViewCell.self)
         tableView.registerNibCell(ofType: LoaderTableViewCell.self)
         tableView.dataSource = self
-    }
-    
-    //Configure Search bar
-    private func configureSearchBar() {
-        searchBar.placeholder = LConstant.CitySearchViewController.searchPlaceholder
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
     }
     
     // observing characters changein searchbar
