@@ -45,21 +45,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EQN-CX-Adz">
+=======
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ITr-Ro-jgg">
+>>>>>>> Stashed changes
                                 <rect key="frame" x="15" y="44" width="384" height="818"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Search City" translatesAutoresizingMaskIntoConstraints="NO" id="up8-DL-8N8">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="51"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EQN-CX-Adz">
+                                        <rect key="frame" x="0.0" y="51" width="384" height="767"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oP4-vL-3T3"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EQN-CX-Adz" firstAttribute="leading" secondItem="oP4-vL-3T3" secondAttribute="leading" constant="15" id="1v1-Nk-oXA"/>
-                            <constraint firstItem="oP4-vL-3T3" firstAttribute="trailing" secondItem="EQN-CX-Adz" secondAttribute="trailing" constant="15" id="AQh-0o-prJ"/>
-                            <constraint firstItem="oP4-vL-3T3" firstAttribute="bottom" secondItem="EQN-CX-Adz" secondAttribute="bottom" id="O08-69-YOF"/>
-                            <constraint firstItem="EQN-CX-Adz" firstAttribute="top" secondItem="oP4-vL-3T3" secondAttribute="top" id="b3n-cW-WLC"/>
+                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="bottom" secondItem="oP4-vL-3T3" secondAttribute="bottom" id="goC-Vf-hG6"/>
+                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="top" secondItem="oP4-vL-3T3" secondAttribute="top" id="lh5-y7-o2T"/>
+                            <constraint firstItem="oP4-vL-3T3" firstAttribute="trailing" secondItem="ITr-Ro-jgg" secondAttribute="trailing" constant="15" id="lj9-sS-SQo"/>
+                            <constraint firstItem="ITr-Ro-jgg" firstAttribute="leading" secondItem="oP4-vL-3T3" secondAttribute="leading" constant="15" id="zGA-zp-2is"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="up8-DL-8N8" id="K4W-wb-hGT"/>
                         <outlet property="tableView" destination="EQN-CX-Adz" id="eZM-dv-4tl"/>
                     </connections>
                 </viewController>

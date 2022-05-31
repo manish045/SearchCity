@@ -11,8 +11,14 @@ import Combine
 class CitySearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+<<<<<<< Updated upstream
     private var searchBar = UISearchBar()
 
+=======
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let scheduler: SchedulerContext = SchedulerContextProvider.provide()
+>>>>>>> Stashed changes
     var viewModel: CitySearchViewModel!
     private var disposeBag = Set<AnyCancellable>()
 
@@ -21,7 +27,6 @@ class CitySearchViewController: UIViewController {
         self.addObservables()
         super.viewDidLoad()
         configureTableView()
-        configureSearchBar()
         self.viewModel.loadCitiesData()
         self.setupSearchBarListeners()
         // Do any additional setup after loading the view.
@@ -32,6 +37,7 @@ class CitySearchViewController: UIViewController {
         tableView.dataSource = self
     }
     
+<<<<<<< Updated upstream
     private func configureSearchBar() {
         searchBar.placeholder = "Search..."
         searchBar.sizeToFit()
@@ -43,6 +49,8 @@ class CitySearchViewController: UIViewController {
         navigationItem.titleView = searchBar
     }
     
+=======
+>>>>>>> Stashed changes
     // observing characters changein searchbar
     private func setupSearchBarListeners() {
         let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: self.searchBar.searchTextField)
