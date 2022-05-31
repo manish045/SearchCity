@@ -16,6 +16,7 @@ protocol CitySearchViewModelInput {
 protocol CitySearchViewModelOutput {
     var loadDataSource: PassthroughSubject<Void, Never> { get}
     var showLoader: PassthroughSubject<Bool, Never> {get}
+    var emptySearchResult: Bool {get}
     var citiesfilteredArray: CitiesModel? {get}
 }
 
@@ -28,16 +29,17 @@ final class CitySearchViewModel: DefaultCitySearchViewModel {
     private var cityDict: [Int: CityModel]
     private var citiesModel: CitiesModel
 
+    var emptySearchResult: Bool = false
     var loadDataSource = PassthroughSubject<Void, Never>()
     var showLoader = PassthroughSubject<Bool, Never>()
     
     var citiesfilteredArray: CitiesModel? {
         didSet {
+            emptySearchResult = (citiesfilteredArray?.count ?? 0 <= 0)
             self.loadDataSource.send()
             self.showLoader.send(false)
         }
     }
-
     
     init(coordinator: CitySearchViewCoordinatorInput,
          autoComplete: AutoComplete,
