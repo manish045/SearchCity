@@ -11,7 +11,6 @@ import XCTest
 class LaunchScreenDataTest: XCTestCase {
     
     var citiesData: CitiesModel!
-    var autocomplete: AutoComplete!
 
     override func setUp() {
         guard let pathString = Bundle(for: type(of: self)).path(forResource: "citiesSample", ofType: "json") else {
@@ -24,12 +23,9 @@ class LaunchScreenDataTest: XCTestCase {
         
         let jsonData = json.data(using: .utf8)!
         citiesData = try! JSONDecoder().decode(CitiesModel.self, from: jsonData)
-        
-        autocomplete = AutoComplete()
     }
     
     override func tearDown() {
-        autocomplete = nil
         citiesData = nil
     }
     
